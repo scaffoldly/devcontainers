@@ -12,8 +12,7 @@ jobs:
         id: filter
         with:
           filters: |
-            color: ./**/color/**
-            hello: ./**/hello/**
+            aws: ./**/aws/**
 
   test:
     needs: [detect-changes]
