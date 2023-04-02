@@ -1,17 +1,18 @@
 
-# My Favorite Color (color)
+# AWS (Localstack) (aws-localstack)
 
-A Template to remind you of your favorite color
+AWS Localstack Devcontainer
 
 ## Options
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Debian version (use bullseye on local arm64/Apple Silicon): | string | bullseye |
-| favorite | Choose your favorite color. | string | red |
+| imageVariant | Ubuntu version: | string | jammy |
+| pythonVariant | Python version: | string | 3.10 |
+| localstackVariant | Localstack version: | string | 1.4 |
 
 
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/devcontainers/template-starter/blob/main/src/color/devcontainer-template.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/scaffoldly/devcontainers/blob/main/src/aws-localstack/devcontainer-template.json).  Add additional notes to a `NOTES.md`._
