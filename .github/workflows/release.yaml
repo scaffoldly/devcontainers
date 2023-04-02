@@ -28,7 +28,7 @@ jobs:
       - name: "Publish Templates"
         uses: devcontainers/action@v1
         with:
-          oci-registry: "registry.hub.docker.com"
+          # oci-registry: "registry.hub.docker.com"
           oci-registry-for-templates: "registry.hub.docker.com"
           publish-templates: "true"
           base-path-to-templates: "./src"
