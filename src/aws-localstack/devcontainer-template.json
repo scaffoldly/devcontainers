@@ -1,18 +1,26 @@
 {
-    "id": "aws",
+    "id": "aws-localstack",
     "version": "1.0.0",
-    "name": "AWS",
-    "description": "Scaffoldly AWS Devcontainer",
+    "name": "AWS (Localstack)",
+    "description": "AWS Localstack Devcontainer",
     "documentationURL": "https://github.com/scaffoldly/devcontainers/tree/main/src/aws",
     "licenseURL": "https://github.com/scaffoldly/devcontainers/blob/main/LICENSE",
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Debian version:",
+            "description": "Ubuntu version:",
             "proposals": [
-                "bullseye"
+                "jammy"
             ],
-            "default": "bullseye"
+            "default": "jammy"
+        },
+        "pythonVariant": {
+            "type": "string",
+            "description": "Python version:",
+            "proposals": [
+                "3.10"
+            ],
+            "default": "3.10"
         },
         "localstackVariant": {
             "type": "string",
