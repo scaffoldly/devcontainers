@@ -4,7 +4,7 @@ source test-utils.sh
 
 # Template specific tests
 check "distro" lsb_release -c
-check "localstack" [ $(cat /tmp/localstack.txt | grep 1.4) ]
+# check "localstack" [ $(cat /tmp/localstack.txt | grep 1.4) ]
 
 # Report result
 reportResults

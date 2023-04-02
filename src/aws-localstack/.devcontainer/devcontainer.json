@@ -1,6 +1,8 @@
 {
-	"name": "AWS",
-	"image": "mcr.microsoft.com/devcontainers/base:${templateOption:imageVariant}",
+	"name": "AWS (Localstack)",
+	"build": {
+		"dockerfile": "Dockerfile.${templateOption:localstackVariant}"
+	}
 
 	// 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
 	// "features": {},
@@ -8,7 +10,7 @@
 	// 👇 Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
-	"postCreateCommand": "echo '${templateOption:localstackVariant}' > /tmp/localstack.txt"
+	// "postCreateCommand": "echo '${templateOption:localstackVariant}' > /tmp/localstack.txt"
 
 	// 👇 Configure tool-specific properties.
 	// "customizations": {},
