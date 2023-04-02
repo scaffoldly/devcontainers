@@ -31,7 +31,7 @@ jobs:
           publish-templates: "true"
           oci-registry: registry.hub.docker.com
           oci-registry-for-templates: registry.hub.docker.com
-          templates-namespace: ${{ secrets.DOCKERHUB_USERNAME }}
+          templates-namespace: registry.hub.docker.com/${{ secrets.DOCKERHUB_USERNAME }}
           base-path-to-templates: "./src"
           generate-docs: "true"
 
