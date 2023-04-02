@@ -1,6 +1,6 @@
 {
     "id": "aws-localstack",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "AWS (Localstack)",
     "description": "AWS Localstack Devcontainer",
     "documentationURL": "https://github.com/scaffoldly/devcontainers/tree/main/src/aws",
