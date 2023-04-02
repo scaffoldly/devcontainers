@@ -29,7 +29,7 @@ jobs:
         uses: devcontainers/action@v1
         with:
           publish-templates: "true"
-          oci-registry-for-templates: registry.hub.docker.com
+          oci-registry: registry.hub.docker.com
           templates-namespace: ${{ secrets.DOCKERHUB_USERNAME }}
           base-path-to-templates: "./src"
           generate-docs: "true"
