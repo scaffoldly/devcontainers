@@ -12,7 +12,7 @@ jobs:
         id: filter
         with:
           filters: |
-            aws: ./**/aws/**
+            aws-localstack: ./**/aws-localstack/**
 
   test:
     needs: [detect-changes]
