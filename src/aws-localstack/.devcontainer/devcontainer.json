@@ -1,7 +1,7 @@
 {
 	"name": "AWS (Localstack)",
 	"build": {
-		"dockerfile": "Dockerfile.${templateOption:localstackVariant}"
+		"dockerfile": "Dockerfile"
 	}
 
 	// 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
