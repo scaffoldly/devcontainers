@@ -30,6 +30,7 @@ jobs:
           imageName: ${{ secrets.DOCKERHUB_USERNAME }}/aws-localstack
           cacheFrom: ${{ secrets.DOCKERHUB_USERNAME }}/aws-localstack
           subFolder: "./src/aws-localstack"
+          platform: linux/amd64,linux/arm64
           push: always
 
       # - name: "Publish Templates"
