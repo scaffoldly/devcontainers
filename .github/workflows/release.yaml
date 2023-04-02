@@ -21,7 +21,7 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
-          registry: hub.docker.com
+          registry: registry.hub.docker.com
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
@@ -29,7 +29,7 @@ jobs:
         uses: devcontainers/action@v1
         with:
           publish-templates: "true"
-          oci-registry-for-templates: hub.docker.com
+          oci-registry-for-templates: registry.hub.docker.com
           templates-namespace: ${{ secrets.DOCKERHUB_USERNAME }}
           base-path-to-templates: "./src"
           generate-docs: "true"
