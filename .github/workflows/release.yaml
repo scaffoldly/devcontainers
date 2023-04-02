@@ -24,44 +24,49 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: "Publish Templates"
-        uses: devcontainers/action@v1
+      - name: Pre-build dev container image
+        uses: devcontainers/ci@v0.3
         with:
-          # publish-templates: "true"
-          # oci-registry: registry.hub.docker.com
-          # oci-registry-for-templates: registry.hub.docker.com
-          # templates-namespace: ${{ secrets.DOCKERHUB_USERNAME }}/aws-localstack
-          base-path-to-templates: "./src"
-          generate-docs: "true"
+          imageName: ${{ secrets.DOCKERHUB_USERNAME }}/aws-localstack
+          cacheFrom: ${{ secrets.DOCKERHUB_USERNAME }}/aws-localstack
+          push: always
 
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: "Publish Templates"
+      #   uses: devcontainers/action@v1
+      #   with:
+      #     # publish-templates: "true"
+      #     # oci-registry: registry.hub.docker.com
+      #     # oci-registry-for-templates: registry.hub.docker.com
+      #     # templates-namespace: ${{ secrets.DOCKERHUB_USERNAME }}/aws-localstack
+      #     base-path-to-templates: "./src"
+      #     generate-docs: "true"
 
-      - run: ls -alR
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create PR for Documentation
-        id: push_image_info
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -e
-          echo "Start."
+      # - name: Create PR for Documentation
+      #   id: push_image_info
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   run: |
+      #     set -e
+      #     echo "Start."
 
-          # Configure git and Push updates
-          git config --global user.email github-actions@github.com
-          git config --global user.name github-actions
-          git config pull.rebase false
+      #     # Configure git and Push updates
+      #     git config --global user.email github-actions@github.com
+      #     git config --global user.name github-actions
+      #     git config pull.rebase false
 
-          branch=automated-documentation-update-$GITHUB_RUN_ID
-          git checkout -b $branch
-          message='Automated documentation update'
+      #     branch=automated-documentation-update-$GITHUB_RUN_ID
+      #     git checkout -b $branch
+      #     message='Automated documentation update'
 
-          # Add / update and commit
-          git add */**/README.md
-          git commit -m 'Automated documentation update [skip ci]' || export NO_UPDATES=true
+      #     # Add / update and commit
+      #     git add */**/README.md
+      #     git commit -m 'Automated documentation update [skip ci]' || export NO_UPDATES=true
 
-          # Push
-          if [ "$NO_UPDATES" != "true" ] ; then
-              git push origin "$branch"
-              gh pr create --title "$message" --body "$message"
-          fi
+      #     # Push
+      #     if [ "$NO_UPDATES" != "true" ] ; then
+      #         git push origin "$branch"
+      #         gh pr create --title "$message" --body "$message"
+      #     fi
